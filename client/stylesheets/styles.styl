@@ -5,6 +5,7 @@ $background-color = hsl(205, 100%, 39%);
 $color = hsl(0, 100%, 100%);
 
 $font-size = 18px;
+$font-size-date = 12px;
 $font-size-user = 22px;
 $line-height = 1.5;
 $font-family = "Segoe UI Light","Segoe UI Web Light","Segoe UI Web Regular",
@@ -49,7 +50,7 @@ html, body {
   margin-top: - 100px;
   width: 150px;
   height: 200px;
-  overflow: scroll;
+  overflow-y: scroll;
   .user{
     color: darken($background-color, 20%);
     text-align: right;
@@ -57,7 +58,7 @@ html, body {
 }
 
 .main-center{
-  width: 640px;
+  width: 660px;
   margin: 0 auto;
   margin-top: 2em;
 }
@@ -111,8 +112,22 @@ html, body {
 
 .award{
   margin: 1em;
+  margin-top: 2em;
   position: relative;
+  .createdAt{
+    font: normal $font-size-date $font-family;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    top: 2em;
+  }
+  .awardText{
+    margin-left: 1em;
+    max-width: 520px;
+    display: inline-block;
+  }
   .remove_award{
+    font: normal $font-size-date $font-family;
     cursor: pointer;
     position: absolute;
     top: 0px;

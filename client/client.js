@@ -30,6 +30,16 @@ Template.award.currentUserIdIs = function (from) {
   return (Meteor.userId() === from);
 };
 
+Template.award.awardDate = function (createdAt) {
+  var momentDate = moment(createdAt);
+  return momentDate.format("DD-MM-YYYY");
+};
+
+Template.award.awardHour = function (createdAt) {
+  var momentDate = moment(createdAt);
+  return momentDate.format("h:mm:ss a");
+};
+
 Template.award.events({
   'click .remove_award' : function () {
     Awards.remove(this._id);

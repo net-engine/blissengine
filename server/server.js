@@ -23,6 +23,7 @@ Meteor.startup(function () {
       if (award.from.length === 0)   { return false; }
       if (award.to.length === 0)     { return false; }
       if (award.why.length === 0)    { return false; }
+      if (Meteor.users.findOne({ _id: award.to }) === undefined) { return false; }
       award.createdAt = new Date();
       Awards.insert(award);
     }

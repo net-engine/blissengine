@@ -1,9 +1,15 @@
 <template name="award">
   <div class="award">
-    <span class="from-username">{{ humanFrom }}</span> found <br/>
-    <span class="to-username">{{ humanTo }}</span>
-    astonishingly <strong>awesome</strong> because <br/>
-    {{ why }}
+    <div class="createdAt">
+      {{ awardDate createdAt }} <br/>
+      {{ awardHour createdAt }}
+    </div>
+    <div class="awardText">
+      <span class="from-username">{{ humanFrom }}</span> found <br/>
+      <span class="to-username">{{ humanTo }}</span>
+      astonishingly <strong>awesome</strong> because <br/>
+      {{ why }}
+    </div>
     {{#if currentUserIdIs from}}
       <span class="remove_award">Remove</span>
     {{/if}}
