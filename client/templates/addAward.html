@@ -1,0 +1,14 @@
+<template name='addAward'>
+  <div class="add-award">
+    <form>
+      <span class="from-username">{{ Meteor.user.username }}</span> found <br/>
+      <input type="text" name="user" class="username" placeholder="The user you find awesome">
+      <input type="hidden" name="user_id" class="user_id">
+      astonishingly <strong>awesome</strong> because <br/>
+      <textarea name="why" class="why" cols="60" rows="3" placeholder="Explain in which circumstances this awesomeness was spotted"></textarea>
+      <div class="controls-button">
+        <input type="submit" class="submit" value="Share this&#x00A; awesomeness" />
+      </div>
+    </form>
+  </div>
+</template>

@@ -1,0 +1,11 @@
+<template name="award">
+  <div class="award">
+    <span class="from-username">{{ humanFrom }}</span> found <br/>
+    <span class="to-username">{{ humanTo }}</span>
+    astonishingly <strong>awesome</strong> because <br/>
+    {{ why }}
+    {{#if currentUserIdIs from}}
+      <span class="remove_award">Remove</span>
+    {{/if}}
+  </div>
+</template>

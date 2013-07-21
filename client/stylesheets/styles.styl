@@ -1,0 +1,123 @@
+@import 'nib';
+
+
+$background-color = hsl(205, 100%, 39%);
+$color = hsl(0, 100%, 100%);
+
+$font-size = 18px;
+$font-size-user = 22px;
+$line-height = 1.5;
+$font-family = "Segoe UI Light","Segoe UI Web Light","Segoe UI Web Regular",
+                "Segoe UI","Segoe UI Symbol","HelveticaNeue-Light","Helvetica Neue",Arial;
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: normal $font-size/$line-height $font-family;
+  background: $background-color;
+  color: $color;
+  padding: 1em;
+}
+
+html, body {
+  margin:0;
+  padding:0;
+  border:0;
+  height:100%;
+  background:#FFF url(/bg.png) center no-repeat fixed;
+}
+
+#login-buttons {
+  font: normal $font-size/$line-height $font-family;
+  float: right;
+}
+
+#login-dropdown-list .login-button{
+  font: normal $font-size/$line-height $font-family;
+  background-color: $background-color;
+}
+
+
+.usersList {
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  margin-top: - 100px;
+  width: 150px;
+  height: 200px;
+  overflow: scroll;
+  .user{
+    color: darken($background-color, 20%);
+    text-align: right;
+  }
+}
+
+.main-center{
+  width: 640px;
+  margin: 0 auto;
+  margin-top: 2em;
+}
+
+.add-award{
+  padding-bottom: 1em;
+  box-shadow: 0 2px 0 $color;
+  .username{
+    width: 215px;
+    margin-right: 0.5em;
+    font: normal $font-size/$line-height $font-family;
+  }
+  .controls-button{
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0.5em;
+    .submit{
+      background: $color;
+      border-radius: 2px;
+      margin: .5em 0 0;
+      cursor: pointer;
+      border: none;
+      padding: 2px;
+      max-width: 130px;
+      font: normal $font-size/$line-height $font-family;
+      &:hover { background: lighten(black, 90%); }
+    }
+  }
+}
+
+.pls-login{
+  padding-bottom: 1em;
+  box-shadow: 0 2px 0 $color;
+}
+
+.from-username, .to-username{
+  text-transform: uppercase;
+  margin-right: 0.5em;
+  font: bold $font-size-user/$line-height $font-family;
+}
+
+.why{
+  margin-top: 0.5em;
+  font: normal $font-size/$line-height $font-family;
+}
+
+.awards{
+  color: darken($background-color, 20%);
+  margin-top: 1.5em;
+}
+
+.award{
+  margin: 1em;
+  position: relative;
+  .remove_award{
+    cursor: pointer;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+}
+
+
