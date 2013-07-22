@@ -6,22 +6,37 @@
 </head>
 
 <body>
+
+
   {{loginButtons align='right'}}
-  <h1>Welcome to BlissEngine!</h1>
-  <h2>Here is today's awesomeness report</h2>
+
+  <header class='header'>
+    <div class='container'>
+      <h2>Here is today's <em>awesomeness</em> report</h2>
+    </div>
+  </header>
+
   {{#if currentUser}}
     {{> usersList}}
   {{/if}}
-  <div class="main-center">
-    {{#if currentUser}}
-      {{> addAward}}
-    {{else}}
-      <div class="pls-login">
-        <h4>Please log in to tell how awesome you find someone!</h4>
-      </div>
-    {{/if}}
-    {{> awards}}
+
+  <div class="main">
+    <div class='container'>
+      {{#if currentUser}}
+        {{> addAward}}
+      {{else}}
+        <div class="pls-login">
+          <h4>Please log in to tell how <em>awesome</em> you find someone!</h4>
+        </div>
+      {{/if}}
+
+      <hr>
+
+      {{> awards}}
+    </div>
   </div>
+
+
 </body>
 
 
