@@ -24,6 +24,8 @@ Meteor.startup(function () {
       if (award.to.length === 0)     { return false; }
       if (award.why.length === 0)    { return false; }
       if (Meteor.users.findOne({ _id: award.to }) === undefined) { return false; }
+      award.humanFrom = Meteor.users.findOne({_id: award.from }).username;
+      award.humanTo   = Meteor.users.findOne({_id: award.to }).username;
       award.createdAt = new Date();
       Awards.insert(award);
     }
