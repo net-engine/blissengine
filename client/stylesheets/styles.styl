@@ -1,138 +1,292 @@
 @import 'nib';
 
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic);
 
-$background-color = hsl(205, 100%, 39%);
-$color = hsl(0, 100%, 100%);
+$background-color = white;
+$color = #444;
 
-$font-size = 18px;
-$font-size-date = 12px;
-$font-size-user = 22px;
+$highlight = seagreen;
+$accent = darken($highlight, 30%);
+
+$font-size = 140%;
+$font-size-date = .75em;
+$font-size-user = .75em;
 $line-height = 1.5;
-$font-family = "Segoe UI Light","Segoe UI Web Light","Segoe UI Web Regular",
-                "Segoe UI","Segoe UI Symbol","HelveticaNeue-Light","Helvetica Neue",Arial;
+$font-family = 'Lora', 'Georgia', serif;
 
+
+$breakpoint-medium = "all and (max-width: 900px)"
+$breakpoint-small  = "all and (max-width: 600px)"
 
 * {
   margin: 0;
   padding: 0;
 }
 
-body {
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  line-height: 1;
+  margin: 0 0 1em;
+}
+
+em {
+  font-style: italic;
+  font-weight: bold;
+}
+
+html {
+  min-height: 100%;
   font: normal $font-size/$line-height $font-family;
   background: $background-color;
   color: $color;
-  padding: 1em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-html, body {
-  margin:0;
-  padding:0;
-  border:0;
-  height:100%;
-  background:#FFF url(/bg.png) center no-repeat fixed;
+body {
+  border-top: .5em solid $highlight;
+}
+
+.button {
+  display: inline-block;
+  font: italic normal 100%/$line-height $font-family;
+  background: $color;
+  color: $background-color;
+  padding: .25em .75em;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  width: auto;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 #login-buttons {
-  font: bold $font-size/$line-height $font-family;
-  color: $background-color;
-  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1.5em 1em;
+
+  a {
+    text-decoration: none;
+    font-size: .75em;
+  }
+
 }
 
-#login-dropdown-list .login-button{
-  font: normal $font-size/$line-height $font-family;
-  background-color: $background-color;
+.accounts-dialog {
+  width: 15em;
 }
 
+#login-dropdown-list .login-button {
+  display: block;
+  @extend .button;
+}
+
+.input {
+  display: inline-block;
+  font: normal 100%/$line-height $font-family;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid $color;
+  appearance: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  &:focus {
+    outline: 0;
+    border-bottom-color: #aaa;
+    color: black;
+  }
+}
+
+input[type='text'], input[type='email'], input[type='password'],
+input[type='number'], input[type='email'], input[type='tel'], textarea {
+  @extend .input;
+}
+
+#login-sign-in-link {
+  @extend .button;
+}
+
+textarea {
+  width: 100%;
+  display: block;
+  resize: vertical;
+  min-height: 2em;
+  max-height: 6em;
+}
+
+.clearfix {
+  zoom: 1;
+
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after { clear: both; }
+
+  display: block;
+  clear: both;
+
+}
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 2em;
+
+  @media $breakpoint-medium {
+    width: 75%;
+  }
+
+  @media $breakpoint-small {
+    width: 90%;
+
+  }
+}
 
 .usersList {
   position: absolute;
-  right: 1em;
+  right: 2.5%;
   top: 50%;
-  margin-top: - 100px;
-  width: 150px;
+  margin-top: -100px;
+  width: 20%;
   height: 200px;
   overflow-y: scroll;
-  .user{
-    color: darken($background-color, 20%);
-    text-align: right;
+  text-align: right;
+
+  .user {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+
+  @media $breakpoint-medium {
+    position: static;
+    margin: 1em auto;
+    width: 75%;
+    text-align: center;
+    height: auto;
+  }
+
 }
 
-.main-center{
-  width: 660px;
-  margin: 0 auto;
-  margin-top: 2em;
-}
 
-.add-award{
-  padding-bottom: 1em;
-  box-shadow: 0 2px 0 $color;
-  .username{
-    width: 215px;
-    margin-right: 0.5em;
-    font: normal $font-size/$line-height $font-family;
+
+
+.add-award {
+  padding: 1em;
+  background: whitesmoke;
+
+  .username {
+    width: 12.5em;
   }
-  .controls-button{
-    display: inline-block;
-    vertical-align: top;
-    margin-top: 0.5em;
-    .submit{
-      background: $color;
-      border-radius: 2px;
-      margin: .5em 0 0;
-      cursor: pointer;
-      border: none;
-      padding: 2px;
-      max-width: 130px;
-      font: normal $font-size/$line-height $font-family;
-      &:hover { background: lighten(black, 90%); }
+
+  .controls-button {
+    display: block;
+    margin-top: 1em;
+
+    .submit {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
   }
 }
 
-.pls-login{
+.submit {
+  @extend .button;
+}
+
+
+hr {
+  display: block;
+  margin: 1em auto;
+  height: .5em;
+  line-height: 0;
+  font-size: 2em;
+  color: #ccc;
+  text-align: center;
+  border: 0;
+
+  &:before { content: '\2026'; }
+}
+
+
+.pls-login {
   padding-bottom: 1em;
   box-shadow: 0 2px 0 $color;
 }
 
-.from-username, .to-username{
+.from-username, .to-username, .user {
   text-transform: uppercase;
-  margin-right: 0.5em;
-  font: bold $font-size-user/$line-height $font-family;
+  font-size: .75em;
+  color: $accent;
 }
 
-.why{
-  margin-top: 0.5em;
-  font: normal $font-size/$line-height $font-family;
-}
 
-.awards{
-  color: darken($background-color, 20%);
-  margin-top: 1.5em;
-}
 
-.award{
-  margin: 1em;
-  margin-top: 2em;
+.award {
+  padding: 2em;
   position: relative;
-  .createdAt{
-    font: normal $font-size-date $font-family;
-    display: inline-block;
+  @extend .clearfix;
+
+  &:hover {
+    .remove_award { display: block; }
+  }
+
+  + .award {
+    border-top: 1px dotted #444;
+  }
+
+
+  .createdAt,
+  .awardText {
+    float: left;
+  }
+
+  .createdAt {
+    width: 25%;
+    font-size: .75em;
     position: relative;
-    vertical-align: top;
-    top: 2em;
+    top: .4em;
+    margin-bottom: 1em;
   }
-  .awardText{
-    margin-left: 1em;
-    max-width: 520px;
-    display: inline-block;
+
+  .awardText {
+    width: 75%;
   }
-  .remove_award{
+
+  @media $breakpoint-small {
+    .createdAt, .awardText {
+      width: auto;
+      float: none;
+      display: block;
+    }
+
+    .createdAt {
+      position: static;
+    }
+
+  }
+
+  .remove_award {
+    display: none;
     font: normal $font-size-date $font-family;
     cursor: pointer;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
+    margin: 1em .5em;
   }
 }
 
