@@ -50,20 +50,24 @@ Template.addAward.events({
   'click .submit' : function () {
     var to   = $( ".user_id").val();
     var why  = $( ".why").val();
-    Meteor.call("insert_award", {from: Meteor.userId(), to: to, why: why});
-    $( ".user_id").val("");
-    $( ".username").val("");
-    $( ".why").val("");
+    if ((to.length > 0) && (why.length > 0) && (Meteor.userId().length >0)){
+      Meteor.call("insert_award", {from: Meteor.userId(), to: to, why: why});
+      $( ".user_id").val("");
+      $( ".username").val("");
+      $( ".why").val("");
+    }
   },
 
   'keydown textarea' : function (e) {
     if (e.keyCode === 13){
       var to   = $( ".user_id").val();
       var why  = $( ".why").val();
-      Meteor.call("insert_award", {from: Meteor.userId(), to: to, why: why});
-      $( ".user_id").val("");
-      $( ".username").val("");
-      $( ".why").val("");
+      if ((to.length > 0) && (why.length > 0) && (Meteor.userId().length >0)){
+        Meteor.call("insert_award", {from: Meteor.userId(), to: to, why: why});
+        $( ".user_id").val("");
+        $( ".username").val("");
+        $( ".why").val("");
+      }
     }
   }
 });
